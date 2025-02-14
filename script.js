@@ -1,6 +1,6 @@
-const rangval = document.getElementById('range').value
-const btn = document.querySelector('button')
 
+const btn = document.querySelector('button')
+// console.log(rangval)
 
 // console.log(allinput)
 
@@ -13,6 +13,7 @@ const allCharacter = {
 };
 
 btn.addEventListener('click', () => {
+    
     let allItem = []
     const allinput = document.querySelectorAll('input');
 
@@ -24,9 +25,17 @@ btn.addEventListener('click', () => {
         }
     });
 
-    console.log(allItem.join(''));  // Log the entire allItem array after the loop
+      // Log the entire allItem array after the loop
+    randomGenerator(allItem.join(''))
 });
 
- function randomGenerator(n){
-    let d = Math.floor(Math.random()*n)
+ function randomGenerator(arr){
+    const rangval = document.getElementById('range').value
+    let final_arr=[]
+   for(let i = 0;i<rangval;i++){
+
+       let d = Math.floor(Math.random()*arr.length)
+       final_arr.push(arr[d])
+    }
+    console.log(final_arr.join(''))
  }
